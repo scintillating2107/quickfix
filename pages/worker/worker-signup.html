@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Registration - QuickFix</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .auth-page { background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); }
+        .logo-icon { background: linear-gradient(135deg, #f97316, #ea580c) !important; }
+        .btn-primary { background: #f97316 !important; }
+        .btn-primary:hover { background: #ea580c !important; }
+    </style>
+</head>
+<body>
+    <div class="auth-page">
+        <div class="auth-container">
+            <div class="auth-logo animate-fadeIn">
+                <a href="../../index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <span style="color:#f97316">QuickFix</span>
+                </a>
+            </div>
+
+            <div class="auth-card animate-slideUp">
+                <h1 class="auth-title">Join as Professional</h1>
+                <p class="auth-subtitle">Register to offer your services</p>
+
+                <form onsubmit="handleWorkerSignup(event)">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <div class="form-input-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <div class="form-input-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <div class="form-input-icon">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="phone" class="form-input" placeholder="+91 9876543210" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Skill Category</label>
+                        <select id="skill" class="form-select" required>
+                            <option value="">Select your skill</option>
+                            <option value="electrician">Electrician</option>
+                            <option value="plumber">Plumber</option>
+                            <option value="carpenter">Carpenter</option>
+                            <option value="cleaner">Cleaning</option>
+                            <option value="ac-technician">AC Technician</option>
+                            <option value="painter">Painter</option>
+                            <option value="pest-control">Pest Control</option>
+                            <option value="appliance">Appliance Repair</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Experience</label>
+                        <select id="experience" class="form-select" required>
+                            <option value="">Select experience</option>
+                            <option value="Less than 1 year">Less than 1 year</option>
+                            <option value="1-2 years experience">1-2 years</option>
+                            <option value="2-3 years experience">2-3 years</option>
+                            <option value="3-5 years experience">3-5 years</option>
+                            <option value="5+ years experience">5+ years</option>
+                            <option value="10+ years experience">10+ years</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <div class="form-input-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" class="form-input" placeholder="Create a password" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Confirm Password</label>
+                        <div class="form-input-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirmPassword" class="form-input" placeholder="Confirm password" required>
+                        </div>
+                    </div>
+
+                    <div style="background:#fef3c7;border-radius:12px;padding:12px;margin-bottom:20px">
+                        <p style="font-size:0.85rem;color:#92400e">
+                            <i class="fas fa-info-circle"></i> 
+                            After registration, your account will be reviewed by admin. You'll be notified once approved.
+                        </p>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-user-plus"></i> Register as Worker
+                    </button>
+                </form>
+
+                <div class="auth-links">
+                    <p>Already have an account? <a href="worker-login.html" style="color:#f97316">Sign In</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/app.js"></script>
+</body>
+</html>
+

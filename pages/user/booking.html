@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Service - QuickFix</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div style="display:flex;align-items:center;gap:16px">
+                    <a href="javascript:history.back()" class="btn btn-secondary btn-sm">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                    <h1 style="font-size:1.25rem;font-weight:700">Book Service</h1>
+                </div>
+                <a href="../../index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top:90px;padding-bottom:40px">
+        <div class="container" style="max-width:600px">
+            <!-- Worker Info -->
+            <div class="booking-summary animate-fadeIn" id="bookingWorkerInfo">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- Booking Form -->
+            <div class="auth-card animate-slideUp">
+                <h2 style="font-size:1.25rem;margin-bottom:20px">Booking Details</h2>
+
+                <form onsubmit="handleBookingSubmit(event)">
+                    <div class="form-group">
+                        <label class="form-label">Select Service</label>
+                        <select id="service" class="form-select" required>
+                            <option value="">Choose a service</option>
+                            <!-- Options added by JS -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Problem Description</label>
+                        <textarea id="problem" class="form-textarea" placeholder="Describe your problem in detail... e.g., Fan making noise, light not working" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Preferred Time</label>
+                        <div class="form-input-icon">
+                            <i class="fas fa-clock"></i>
+                            <input type="text" id="preferredTime" class="form-input" placeholder="e.g., Today evening, Tomorrow morning" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Service Address</label>
+                        <textarea id="address" class="form-textarea" placeholder="Enter complete address with landmarks" required style="min-height:80px"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">
+                        <i class="fas fa-paper-plane"></i> Send Booking Request
+                    </button>
+                </form>
+
+                <div style="background:#e0f2fe;border-radius:12px;padding:16px;margin-top:20px">
+                    <p style="font-size:0.9rem;color:#0369a1">
+                        <i class="fas fa-info-circle"></i> 
+                        Your request will be sent instantly. The worker will accept or respond within minutes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', renderBookingForm);
+    </script>
+</body>
+</html>
+

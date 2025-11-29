@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Profile - QuickFix</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Back Button -->
+    <a href="workers.html" class="btn btn-secondary" style="position:fixed;top:20px;left:20px;z-index:100">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
+
+    <!-- Profile Header -->
+    <div class="profile-header">
+        <div class="profile-avatar-large" id="workerAvatar">
+            <i class="fas fa-user"></i>
+        </div>
+        <h1 class="profile-name" id="workerName">Worker Name</h1>
+        <p class="profile-skill" id="workerSkill">Skill</p>
+    </div>
+
+    <!-- Profile Content -->
+    <div class="profile-content">
+        <!-- Stats -->
+        <div class="profile-stats animate-slideUp">
+            <div class="profile-stat-card">
+                <div class="profile-stat-value" id="workerRating">0</div>
+                <div class="profile-stat-label">Rating ⭐</div>
+            </div>
+            <div class="profile-stat-card">
+                <div class="profile-stat-value" id="workerReviews">0</div>
+                <div class="profile-stat-label">Reviews</div>
+            </div>
+            <div class="profile-stat-card">
+                <div class="profile-stat-value" id="workerJobs">0</div>
+                <div class="profile-stat-label">Jobs Done</div>
+            </div>
+        </div>
+
+        <!-- Info Card -->
+        <div class="profile-card animate-slideUp" style="animation-delay:100ms">
+            <h3 class="profile-card-title"><i class="fas fa-info-circle"></i> About</h3>
+            <div class="profile-info-row">
+                <i class="fas fa-clock"></i>
+                <span id="workerExperience">Experience</span>
+            </div>
+            <div class="profile-info-row">
+                <i class="fas fa-rupee-sign"></i>
+                <span>Starting from <strong id="workerMinCharge">₹0</strong></span>
+            </div>
+            <div class="profile-info-row">
+                <i class="fas fa-circle"></i>
+                <span id="workerAvailability">Status</span>
+            </div>
+        </div>
+
+        <!-- Contact Card -->
+        <div class="profile-card animate-slideUp" style="animation-delay:200ms">
+            <h3 class="profile-card-title"><i class="fas fa-address-book"></i> Contact</h3>
+            <div class="profile-info-row">
+                <i class="fas fa-phone"></i>
+                <span id="workerPhone">Phone</span>
+            </div>
+            <div class="profile-info-row">
+                <i class="fas fa-envelope"></i>
+                <span id="workerEmail">Email</span>
+            </div>
+            <div style="display:flex;gap:12px;margin-top:16px">
+                <button id="callWorkerBtn" class="btn btn-secondary" style="flex:1">
+                    <i class="fas fa-phone"></i> Call
+                </button>
+                <button id="whatsappWorkerBtn" class="btn btn-success" style="flex:1">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </button>
+            </div>
+        </div>
+
+        <!-- Reviews Card -->
+        <div class="profile-card animate-slideUp" style="animation-delay:300ms">
+            <h3 class="profile-card-title"><i class="fas fa-star"></i> Reviews</h3>
+            <div id="workerReviewsList">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- Book Button -->
+        <button id="bookWorkerBtn" class="btn btn-primary btn-lg btn-block animate-slideUp" style="animation-delay:400ms;margin-top:24px">
+            <i class="fas fa-calendar-check"></i> Book Now
+        </button>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', renderWorkerProfile);
+    </script>
+</body>
+</html>
+

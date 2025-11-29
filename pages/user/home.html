@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - QuickFix</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../../index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <span>QuickFix</span>
+                </a>
+                <div class="nav-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Delhi, India</span>
+                </div>
+                <div class="nav-links">
+                    <a href="my-bookings.html" class="nav-link"><i class="fas fa-calendar-alt"></i> My Bookings</a>
+                    <div class="topbar-user">
+                        <div class="topbar-avatar" id="userAvatar">A</div>
+                        <span id="userName">User</span>
+                    </div>
+                    <button onclick="handleLogout()" class="btn btn-secondary btn-sm">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top:90px">
+        <!-- Welcome Section -->
+        <section class="section" style="padding-top:20px">
+            <div class="container">
+                <div class="animate-fadeIn">
+                    <h1 style="font-size:1.75rem;margin-bottom:8px">Hello, <span id="userName2">User</span> 👋</h1>
+                    <p style="color:var(--text-secondary)">What service do you need today?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="section" style="padding-top:20px">
+            <div class="container">
+                <h2 class="section-title">Service Categories</h2>
+                <div class="main-categories" id="homeCategories" style="justify-content:flex-start">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Nearby Workers -->
+        <section class="section section-gray">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Available Nearby</h2>
+                    <a href="workers.html" class="see-all">See all <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="workers-grid" id="nearbyWorkers">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Quick Actions</h2>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px">
+                    <a href="my-bookings.html" class="feature-card" style="background:linear-gradient(135deg, #667eea 0%, #764ba2 100%)">
+                        <div class="feature-content">
+                            <h3>My Bookings</h3>
+                            <p>View your service history</p>
+                        </div>
+                        <div class="feature-icon"><i class="fas fa-calendar-check"></i></div>
+                    </a>
+                    <a href="workers.html" class="feature-card" style="background:linear-gradient(135deg, #f093fb 0%, #f5576c 100%)">
+                        <div class="feature-content">
+                            <h3>All Workers</h3>
+                            <p>Browse all professionals</p>
+                        </div>
+                        <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            renderUserHome();
+            const user = getCurrentUser();
+            if (user) {
+                document.getElementById('userName2').textContent = user.name.split(' ')[0];
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - QuickFix</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="../../index.html" class="sidebar-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <span>QuickFix Admin</span>
+            </a>
+
+            <ul class="sidebar-menu">
+                <li><a href="admin-dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li>
+                    <a href="admin-approvals.html">
+                        <i class="fas fa-user-check"></i> Approvals
+                        <span id="pendingBadge" style="background:#ef4444;color:white;padding:2px 8px;border-radius:10px;font-size:0.75rem;margin-left:auto"></span>
+                    </a>
+                </li>
+                <li><a href="admin-users.html"><i class="fas fa-users"></i> Users</a></li>
+                <li><a href="admin-workers.html"><i class="fas fa-hard-hat"></i> Workers</a></li>
+                <li><a href="admin-bookings.html"><i class="fas fa-calendar-alt"></i> Bookings</a></li>
+                <li style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1)">
+                    <a href="#" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="topbar">
+                <h1 class="topbar-title">Dashboard</h1>
+                <div class="topbar-actions">
+                    <div class="topbar-user">
+                        <div class="topbar-avatar" style="background:#8b5cf6"><i class="fas fa-user"></i></div>
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                <!-- Stats -->
+                <div class="stats-grid animate-fadeIn">
+                    <div class="stat-card" onclick="window.location='admin-users.html'" style="cursor:pointer">
+                        <div class="stat-card-header">
+                            <div class="stat-card-icon blue"><i class="fas fa-users"></i></div>
+                        </div>
+                        <div class="stat-card-value" id="statUsers">0</div>
+                        <div class="stat-card-label">Total Users</div>
+                    </div>
+                    <div class="stat-card" onclick="window.location='admin-workers.html'" style="cursor:pointer">
+                        <div class="stat-card-header">
+                            <div class="stat-card-icon yellow"><i class="fas fa-hard-hat"></i></div>
+                        </div>
+                        <div class="stat-card-value" id="statWorkers">0</div>
+                        <div class="stat-card-label">Active Workers</div>
+                    </div>
+                    <div class="stat-card" onclick="window.location='admin-bookings.html'" style="cursor:pointer">
+                        <div class="stat-card-header">
+                            <div class="stat-card-icon green"><i class="fas fa-calendar-check"></i></div>
+                        </div>
+                        <div class="stat-card-value" id="statBookings">0</div>
+                        <div class="stat-card-label">Total Bookings</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div class="stat-card-icon purple"><i class="fas fa-rupee-sign"></i></div>
+                        </div>
+                        <div class="stat-card-value" id="statRevenue">₹0</div>
+                        <div class="stat-card-label">Total Revenue</div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px;margin:30px 0" class="animate-slideUp">
+                    <a href="admin-approvals.html" class="feature-card" style="background:linear-gradient(135deg, #f59e0b, #d97706);position:relative">
+                        <div class="feature-content">
+                            <h3>Pending Approvals</h3>
+                            <p><span id="pendingCount">0</span> workers waiting</p>
+                        </div>
+                        <div class="feature-icon"><i class="fas fa-user-clock"></i></div>
+                    </a>
+                    <a href="admin-workers.html" class="feature-card" style="background:linear-gradient(135deg, #8b5cf6, #7c3aed)">
+                        <div class="feature-content">
+                            <h3>Manage Workers</h3>
+                            <p>View all professionals</p>
+                        </div>
+                        <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+                    </a>
+                </div>
+
+                <!-- Recent Bookings -->
+                <div class="data-table animate-slideUp" style="animation-delay:100ms">
+                    <div style="padding:20px;border-bottom:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center">
+                        <h3 style="font-weight:600">Recent Bookings</h3>
+                        <a href="admin-bookings.html" style="color:var(--primary);font-weight:500">View all →</a>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Worker</th>
+                                <th>Status</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentBookingsTable">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            renderAdminDashboard();
+            const pending = getPendingWorkers().length;
+            document.getElementById('pendingBadge').textContent = pending > 0 ? pending : '';
+        });
+    </script>
+</body>
+</html>
+

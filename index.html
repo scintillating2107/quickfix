@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickFix - Home Services at Your Doorstep</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <span>QuickFix</span>
+                </a>
+                <div class="nav-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="userLocation">Delhi, India</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="nav-links">
+                    <a href="pages/user/login.html" class="nav-link">Login</a>
+                    <a href="pages/worker/worker-login.html" class="nav-link">For Workers</a>
+                    <a href="pages/admin/admin-login.html" class="nav-link">Admin</a>
+                </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="pages/user/login.html">Login / Sign Up</a>
+        <a href="pages/worker/worker-login.html">For Workers</a>
+        <a href="pages/admin/admin-login.html">Admin Panel</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Home services at your doorstep</h1>
+                <p class="hero-subtitle">What are you looking for?</p>
+                
+                <!-- Main Service Categories -->
+                <div class="main-categories">
+                    <a href="pages/user/workers.html?category=electrician" class="main-category-card">
+                        <div class="category-icon electrician">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <span>Electrician</span>
+                    </a>
+                    <a href="pages/user/workers.html?category=plumber" class="main-category-card">
+                        <div class="category-icon plumber">
+                            <i class="fas fa-faucet"></i>
+                        </div>
+                        <span>Plumber</span>
+                    </a>
+                    <a href="pages/user/workers.html?category=carpenter" class="main-category-card">
+                        <div class="category-icon carpenter">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        <span>Carpenter</span>
+                    </a>
+                    <a href="pages/user/workers.html?category=cleaner" class="main-category-card">
+                        <div class="category-icon cleaner">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <span>Cleaning</span>
+                    </a>
+                    <a href="pages/user/workers.html?category=ac-technician" class="main-category-card">
+                        <div class="category-icon ac">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <span>AC Repair</span>
+                    </a>
+                    <a href="pages/user/workers.html?category=painter" class="main-category-card">
+                        <div class="category-icon painter">
+                            <i class="fas fa-paint-roller"></i>
+                        </div>
+                        <span>Painter</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-star"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value">4.8</span>
+                        <span class="stat-label">Service Rating</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value">50K+</span>
+                        <span class="stat-label">Happy Customers</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-user-check"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value">500+</span>
+                        <span class="stat-label">Verified Workers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New and Noteworthy -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">New and noteworthy</h2>
+            <div class="feature-cards">
+                <div class="feature-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="feature-content">
+                        <h3>24/7 Emergency Services</h3>
+                        <p>Get instant help for urgent repairs</p>
+                    </div>
+                    <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                </div>
+                <div class="feature-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <div class="feature-content">
+                        <h3>Verified Professionals</h3>
+                        <p>Background checked & trained</p>
+                    </div>
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                </div>
+                <div class="feature-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <div class="feature-content">
+                        <h3>Transparent Pricing</h3>
+                        <p>No hidden charges, pay what you see</p>
+                    </div>
+                    <div class="feature-icon"><i class="fas fa-tag"></i></div>
+                </div>
+                <div class="feature-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                    <div class="feature-content">
+                        <h3>Satisfaction Guaranteed</h3>
+                        <p>100% money-back guarantee</p>
+                    </div>
+                    <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Most Booked Services -->
+    <section class="section section-gray">
+        <div class="container">
+            <h2 class="section-title">Most booked services</h2>
+            <div class="services-grid" id="popularServices">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- All Categories -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">All Services</h2>
+            <div class="all-categories" id="allCategories">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title light">How QuickFix Works</h2>
+            <div class="how-it-works">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon"><i class="fas fa-search"></i></div>
+                    <h3>Choose Service</h3>
+                    <p>Select from our wide range of home services</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3>Find Experts</h3>
+                    <p>View nearby verified professionals with ratings</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon"><i class="fas fa-calendar-check"></i></div>
+                    <h3>Book & Relax</h3>
+                    <p>Schedule service and track in real-time</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Rated Workers -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Top Rated Professionals</h2>
+                <a href="pages/user/workers.html" class="see-all">See all <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="workers-grid" id="topWorkers">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to get started?</h2>
+                <p>Join thousands of happy customers who trust QuickFix for their home service needs</p>
+                <div class="cta-buttons">
+                    <a href="pages/user/signup.html" class="btn btn-white">Book a Service</a>
+                    <a href="pages/worker/worker-signup.html" class="btn btn-outline-white">Join as Professional</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <span>QuickFix</span>
+                    </a>
+                    <p>Your trusted partner for all home services. Quality work, verified professionals, transparent pricing.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h4>For Customers</h4>
+                    <a href="pages/user/login.html">Login</a>
+                    <a href="pages/user/signup.html">Sign Up</a>
+                    <a href="#">Reviews</a>
+                    <a href="#">Help Center</a>
+                </div>
+                <div class="footer-links">
+                    <h4>For Professionals</h4>
+                    <a href="pages/worker/worker-signup.html">Register</a>
+                    <a href="pages/worker/worker-login.html">Login</a>
+                    <a href="#">Resources</a>
+                    <a href="#">Partner Program</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 QuickFix. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Initialize landing page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderPopularServices();
+            renderAllCategories();
+            renderTopWorkers();
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Dashboard - QuickFix</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background:var(--bg-secondary)">
+    <!-- Header -->
+    <header class="header" style="background:linear-gradient(135deg, #f97316, #ea580c)">
+        <div class="container">
+            <nav class="nav">
+                <div style="display:flex;align-items:center;gap:16px;color:white">
+                    <div class="topbar-avatar" id="workerAvatar" style="background:white;color:#f97316">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <h1 id="workerName" style="font-size:1.1rem;font-weight:700">Worker</h1>
+                        <p id="workerSkill" style="font-size:0.85rem;opacity:0.9">Skill</p>
+                    </div>
+                </div>
+                <button onclick="handleLogout()" class="btn btn-sm" style="background:rgba(255,255,255,0.2);color:white;border:none">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top:90px;padding-bottom:40px">
+        <div class="container">
+            <!-- Availability Toggle -->
+            <div class="auth-card animate-fadeIn" style="margin-bottom:24px">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                    <div>
+                        <h3 style="font-weight:600;margin-bottom:4px">Availability Status</h3>
+                        <p style="color:var(--text-secondary);font-size:0.9rem">Toggle to go online/offline</p>
+                    </div>
+                    <div class="toggle-container">
+                        <span id="availabilityStatus" class="toggle-label">Offline</span>
+                        <label class="toggle">
+                            <input type="checkbox" id="availabilityToggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid animate-slideUp">
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <div class="stat-card-icon blue"><i class="fas fa-briefcase"></i></div>
+                    </div>
+                    <div class="stat-card-value" id="statJobs">0</div>
+                    <div class="stat-card-label">Jobs Done</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <div class="stat-card-icon green"><i class="fas fa-rupee-sign"></i></div>
+                    </div>
+                    <div class="stat-card-value" id="statEarnings">₹0</div>
+                    <div class="stat-card-label">Earnings</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <div class="stat-card-icon yellow"><i class="fas fa-star"></i></div>
+                    </div>
+                    <div class="stat-card-value" id="statRating">0</div>
+                    <div class="stat-card-label">Rating</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <div class="stat-card-icon purple"><i class="fas fa-comment"></i></div>
+                    </div>
+                    <div class="stat-card-value" id="statReviews">0</div>
+                    <div class="stat-card-label">Reviews</div>
+                </div>
+            </div>
+
+            <!-- Pending Requests -->
+            <section style="margin-top:30px" class="animate-slideUp" style="animation-delay:100ms">
+                <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px">
+                    <span style="width:8px;height:8px;background:#f97316;border-radius:50%;animation:pulse 2s infinite"></span>
+                    New Job Requests
+                </h2>
+                <div id="pendingRequests" class="cards-grid" style="grid-template-columns:1fr">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- Active Jobs -->
+            <section style="margin-top:30px" class="animate-slideUp" style="animation-delay:200ms">
+                <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:16px">
+                    <i class="fas fa-tasks" style="color:var(--primary)"></i> Active Jobs
+                </h2>
+                <div id="activeJobs" class="cards-grid" style="grid-template-columns:1fr">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Complete Job Modal -->
+    <div class="modal-overlay" id="completeModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Complete Job</h3>
+                <button class="modal-close" onclick="closeCompleteModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form onsubmit="handleCompleteJob(event)">
+                <div class="modal-body">
+                    <input type="hidden" id="completeBookingId">
+                    <div class="form-group">
+                        <label class="form-label">Final Amount (₹)</label>
+                        <div class="form-input-icon">
+                            <i class="fas fa-rupee-sign"></i>
+                            <input type="number" id="jobPrice" class="form-input" placeholder="Enter amount charged" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeCompleteModal()">Cancel</button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-check"></i> Mark Complete
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', renderWorkerDashboard);
+    </script>
+</body>
+</html>
+

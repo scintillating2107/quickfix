@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - QuickFix</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .auth-page { background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); }
+        .logo-icon { background: linear-gradient(135deg, #8b5cf6, #7c3aed) !important; }
+        .btn-primary { background: #8b5cf6 !important; }
+        .btn-primary:hover { background: #7c3aed !important; }
+    </style>
+</head>
+<body>
+    <div class="auth-page">
+        <div class="auth-container">
+            <div class="auth-logo animate-fadeIn">
+                <a href="../../index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <span style="color:#8b5cf6">QuickFix Admin</span>
+                </a>
+            </div>
+
+            <div class="auth-card animate-slideUp">
+                <h1 class="auth-title">Admin Panel</h1>
+                <p class="auth-subtitle">Manage your platform</p>
+
+                <div class="demo-box" style="background:#ede9fe;border-color:#c4b5fd">
+                    <h4 style="color:#5b21b6"><i class="fas fa-info-circle"></i> Admin Credentials</h4>
+                    <p style="color:#5b21b6">Email: admin@quickfix.com</p>
+                    <p style="color:#5b21b6">Password: admin123</p>
+                </div>
+
+                <form onsubmit="handleAdminLogin(event)">
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <div class="form-input-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" class="form-input" placeholder="admin@quickfix.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <div class="form-input-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" class="form-input" placeholder="Enter password" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-sign-in-alt"></i> Sign In
+                    </button>
+
+                    <button type="button" class="btn btn-secondary btn-block" onclick="fillDemoAdminCredentials()" style="margin-top:12px">
+                        <i class="fas fa-magic"></i> Fill Admin Credentials
+                    </button>
+                </form>
+            </div>
+
+            <div style="text-align:center;margin-top:20px">
+                <a href="../../index.html" style="color:var(--text-secondary);font-size:0.9rem">← Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/app.js"></script>
+</body>
+</html>
+
