@@ -20,8 +20,8 @@ export default function AdminBookingsPage() {
   const router = useRouter();
   const { session } = useAuthStore();
   const { bookings } = useBookingsStore();
-  const { getUser } = useUsersStore();
-  const { getWorker } = useWorkersStore();
+  const { users } = useUsersStore();
+  const { workers } = useWorkersStore();
 
   const [searchQuery, setSearchQuery] = useState('');
   const [filter, setFilter] = useState<'all' | 'pending' | 'ongoing' | 'completed'>('all');
@@ -39,8 +39,8 @@ export default function AdminBookingsPage() {
 
   const filteredBookings = bookings
     .filter(booking => {
-      const user = getUser(booking.userId);
-      const worker = getWorker(booking.workerId);
+      const user = users.find(u => u.id === booking.userId);
+      const worker = workers.find(w => w.id === booking.workerId);
       const matchesSearch = 
         booking.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
         user?.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -168,8 +168,8 @@ export default function AdminBookingsPage() {
             </Card>
           ) : (
             filteredBookings.map((booking, index) => {
-              const user = getUser(booking.userId);
-              const worker = getWorker(booking.workerId);
+              const user = users.find(u => u.id === booking.userId);
+              const worker = workers.find(w => w.id === booking.workerId);
               const category = categories.find(c => c.id === booking.categoryId);
 
               return (
@@ -252,11 +252,11 @@ export default function AdminBookingsPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <p className="text-xs text-gray-500">Customer</p>
-                  <p className="font-medium">{getUser(selectedBooking.userId)?.name}</p>
+                  <p className="font-medium">{users.find(u => u.id === selectedBooking.userId)?.name}</p>
                 </div>
                 <div className="space-y-1">
                   <p className="text-xs text-gray-500">Worker</p>
-                  <p className="font-medium">{getWorker(selectedBooking.workerId)?.name}</p>
+                  <p className="font-medium">{workers.find(w => w.id === selectedBooking.workerId)?.name}</p>
                 </div>
               </div>
 

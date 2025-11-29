@@ -24,7 +24,7 @@ export default function WorkerJobsPage() {
   const { session } = useAuthStore();
   const { getWorker } = useWorkersStore();
   const { getWorkerBookings, updateBooking } = useBookingsStore();
-  const { getUser } = useUsersStore();
+  const { users } = useUsersStore();
 
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [filter, setFilter] = useState<'all' | 'active' | 'completed'>('all');
@@ -92,14 +92,14 @@ export default function WorkerJobsPage() {
   };
 
   const handleCall = (userId: string) => {
-    const user = getUser(userId);
+    const user = users.find(u => u.id === userId);
     if (user) {
       window.location.href = `tel:${user.phone}`;
     }
   };
 
   const handleWhatsApp = (userId: string) => {
-    const user = getUser(userId);
+    const user = users.find(u => u.id === userId);
     if (user) {
       const message = encodeURIComponent(`Hi, I'm ${worker.name} from SmartHousehold regarding your service request.`);
       window.open(`https://wa.me/${user.phone.replace(/\D/g, '')}?text=${message}`, '_blank');
@@ -158,7 +158,7 @@ export default function WorkerJobsPage() {
             </Card>
           ) : (
             filteredBookings.map((booking, index) => {
-              const customer = getUser(booking.userId);
+              const customer = users.find(u => u.id === booking.userId);
               const category = categories.find(c => c.id === booking.categoryId);
 
               return (
