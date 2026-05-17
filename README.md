@@ -9,7 +9,7 @@
 
 ## 📖 Overview
 
-**QuickFix** is a comprehensive real-time household service marketplace that connects customers with verified service professionals. The platform features three distinct portals:
+**QuickFix** is a comprehensive real-time household service platform that connects customers with verified service professionals. The platform features three distinct portals:
 
 - **👤 User App** - Browse services, book appointments, track workers, chat & pay
 - **👷 Worker App** - Manage jobs, update status, track earnings, communicate
