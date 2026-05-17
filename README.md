@@ -94,7 +94,7 @@
 - Service categories with colorful icons
 - Most booked services carousel
 - How it works section
-- Customer testimonials
+- Customer reviews
 
 ### User Dashboard
 - Personalized greeting
