@@ -18,7 +18,7 @@
 ## ✨ Features
 
 ### For Customers
-- 🔍 Browse 10+ service categories (Electrician, Plumber, Carpenter, etc.)
+- 🔍 Browse multiple service categories (Electrician, Plumber, Carpenter, etc.)
 - 📅 Multi-step appointment booking with calendar & time slots
 - 📍 Real-time worker tracking
 - 💬 In-app chat with service providers
